@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Camping Web Shop</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js"></script>
+</head>
+<body>
+    <header style="background-image: url('camping-background.jpg');">
+        <div>
+            <h1>Camping Web Shop</h1>
+        </div>
+    </header>
+
+    <script src="script.js"></script>
+
+    <main>
+        <section id="products">
+            <div class="container">
+                <h2>Our Products</h2>
+                <div class="product">
+                    <div class="product-details">
+                        <h3>Waterproof Tent</h3>
+                        <p>Price: $59.99</p>
+                        <button class="buy-now-btn" onclick="openPopup()">Buy Now</button> 
+                        <div class="popup" id="popup">
+                            <img src="cart.jpg">
+                            <h2>How many tents do you want to buy?</h2>
+                            <button type="button" onclick="closePopup()">OK</button>
+                        </div>  
+                    </div>
+                    <img src="tent.png" alt="Tent" class="product-image">
+                </div>
+            </div>
+        </section>
+        
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Camping Web Shop</p>
+    </footer>
+<script>
+    let popup = document.getElementById("popup")
+    function openPopup(){
+        popup.classList.add("open-popup");
+    }
+    function closePopup(){
+        popup.classList.remove("open-popup");
+    }
+</script>
+</body>
+</html>
