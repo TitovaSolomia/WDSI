@@ -28,6 +28,7 @@
                         <div class="popup" id="popup">
                             <img src="cart.jpg">
                             <h2>How many tents do you want to buy?</h2>
+                            <input type="number" id="quantityInput" placeholder="Enter quantity">
                             <button type="button" onclick="closePopup()">OK</button>
                         </div>  
                     </div>
@@ -45,6 +46,7 @@
     let popup = document.getElementById("popup")
     function openPopup(){
         popup.classList.add("open-popup");
+        quantityInput.value = "";
     }
     function closePopup(){
         popup.classList.remove("open-popup");
