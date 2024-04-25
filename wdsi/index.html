@@ -27,9 +27,11 @@
                         <button class="buy-now-btn" onclick="openPopup()">Buy Now</button> 
                         <div class="popup" id="popup">
                             <img src="cart.jpg">
-                            <h2>How many tents do you want to buy?</h2>
+                            <h4>How many tents do you want to buy?</h4>
                             <input type="number" id="quantityInput" placeholder="Enter quantity">
-                            <button type="button" onclick="closePopup()">OK</button>
+                            <h4>What week should the tents be ready??</h4>
+                            <input type="number" id="durationInput" placeholder="Enter duration">
+                            <button type="button" id="confirmBtn" onclick="sendQuantityToPython()">OK</button>
                         </div>  
                     </div>
                     <img src="tent.png" alt="Tent" class="product-image">
@@ -44,6 +46,44 @@
     </footer>
 <script>
     let popup = document.getElementById("popup")
+    let quantityInput = document.getElementById("quantityInput");
+    let durationInput = document.getElementById("quantityInput");
+
+
+    function sendQuantityToPython() {    
+        const quantity = quantityInput.value;
+        const duration = durationInput.value;
+
+        if (quantity === "" || isNaN(quantity)) {
+            alert("Please enter a valid number to a quantity field");
+            return;
+        }
+        else if(duration === "" || isNaN(duration)){
+            alert("Please enter a valid number to a duration field");
+            return;
+        }
+        else{
+                // Send to Python using AJAX
+            const xhr = new XMLHttpRequest();
+            xhr.open("POST", "http://127.0.0.1:5000/quantity", true);
+            xhr.setRequestHeader("Content-Type", "application/json");
+            xhr.setRequestHeader("Access-Control-Allow-Origin", "*")
+
+            xhr.onload = function() {
+
+                if (xhr.status === 200) {
+                    alert("Sent to Python successfully!");
+                    closePopup();
+                } else {
+                    alert("Error sending to Python");
+                }
+            };
+            data =  `{"quantity":${quantity}, "duration":${duration}}`;
+            xhr.send(data);
+        
+        }
+    }
+
     function openPopup(){
         popup.classList.add("open-popup");
         quantityInput.value = "";
