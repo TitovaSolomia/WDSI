@@ -41,14 +41,104 @@
         
     </main>
 
+    <section id="productsLevel0">
+        <div class="container">
+            <h2>For Producent Level 0</h2>
+            <div class="product">
+                <div class="product-detail">
+                    <p>Provide initial stock</p> 
+                    <input type="number" id="suppliesInput0" placeholder="Enter the number">
+                    <p>Provide the time needed to assemble the item</p>
+                    <input type="number" id="assembleInput0" placeholder="Enter the number">
+                    <button type="button" id="confirmBtn" onclick="submitLevel(0, '----')">Submit</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="productsLevel1">
+        <div class="container">
+            <h2>For Producent Level 1</h2>
+            <div class="product">
+                <div class="product-detail">
+                    <input type="number" id="tentInput1" placeholder="Enter the number"><br>
+                    <button type="button" id="confirmBtn" onclick="sendGenralLevel1()">Submit</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="productsLevel1Roof">
+        <div class="container">
+            <h2>For Producent Level 1 Roof</h2>
+            <div class="product">
+                <div class="product-detail">
+                    <p>Provide initial stock</p> 
+                    <input type="number" id="suppliesInputRoof" placeholder="Enter the number">
+                    <p>Provide the time needed to assemble the item</p>
+                    <input type="number" id="assembleInputRoof" placeholder="Enter the number">
+                    <button type="button" id="confirmBtn" onclick="submitLevel(1, 'roof')">Submit</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="productsLevel1Floor">
+        <div class="container">
+            <h2>For Producent Level 1 Floor</h2>
+            <div class="product">
+                <div class="product-detail">
+                    <p>Provide initial stock</p> 
+                    <input type="number" id="suppliesInputFloor" placeholder="Enter the number">
+                    <p>Provide the time needed to assemble the item</p>
+                    <input type="number" id="assembleInputFloor" placeholder="Enter the number">
+                    <button type="button" id="confirmBtn" onclick="submitLevel(1, 'floor')">Submit</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="productsLevel1Entry">
+        <div class="container">
+            <h2>For Producent Level 1 Entry</h2>
+            <div class="product">
+                <div class="product-detail">
+                    <p>Provide initial stock</p> 
+                    <input type="number" id="suppliesInputEntry" placeholder="Enter the number">
+                    <p>Provide the time needed to assemble the item</p>
+                    <input type="number" id="assembleInputEntry" placeholder="Enter the number">
+                    <button type="button" id="confirmBtn" onclick="submitLevel(1, 'entry')">Submit</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="productsLevel1Frame">
+        <div class="container">
+            <h2>For Producent Level 1 Frame</h2>
+            <div class="product">
+                <div class="product-detail">
+                    <p>Provide initial stock</p> 
+                    <input type="number" id="suppliesInputFrame" placeholder="Enter the number">
+                    <p>Provide the time needed to assemble the item</p>
+                    <input type="number" id="assembleInputFrame" placeholder="Enter the number">
+                    <button type="button" id="confirmBtn" onclick="submitLevel(1, 'frame')">Submit</button>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
     <footer>
         <p>&copy; 2024 Camping Web Shop</p>
     </footer>
 <script>
     let popup = document.getElementById("popup")
     let quantityInput = document.getElementById("quantityInput");
-    let durationInput = document.getElementById("quantityInput");
-
+    let durationInput = document.getElementById("durationInput");
+    let suppliesInput = document.getElementById("suppliesInput");
+    let assembleInput = document.getElementById("assembleInput");
+    let tentInput = document.getElementById("tentInput");
 
     function sendQuantityToPython() {    
         const quantity = quantityInput.value;
@@ -62,6 +152,7 @@
             alert("Please enter a valid number to a duration field");
             return;
         }
+        
         else{
                 // Send to Python using AJAX
             const xhr = new XMLHttpRequest();
@@ -74,15 +165,122 @@
                 if (xhr.status === 200) {
                     alert("Sent to Python successfully!");
                     closePopup();
-                } else {
+                } 
+                else {
                     alert("Error sending to Python");
                 }
             };
             data =  `{"quantity":${quantity}, "duration":${duration}}`;
             xhr.send(data);
-        
         }
     }
+
+    function submitLevel(levelValue, component){
+        let supplies = 0;
+        let assemble = 0;
+        
+        console.log(levelValue);
+        console.log(component);
+
+        if(levelValue === 0){
+            supplies = suppliesInput0.value;
+            assemble = assembleInput0.value;
+        }
+        else if(levelValue === 1){
+            if(component === "roof"){
+                supplies = suppliesInputRoof.value;
+                assemble = assembleInputRoof.value;
+            }
+            else if(component === "frame"){
+                supplies = suppliesInputFrame.value;
+                assemble = assembleInputFrame.value;
+            }
+            else if(component === "floor"){
+                supplies = suppliesInputFloor.value;
+                assemble = assembleInputFloor.value;
+            }
+            else if(component === "entry"){
+                supplies = suppliesInputEntry.value;
+                assemble = assembleInputEntry.value;
+            }
+        }
+
+        if(supplies === "" || isNaN(supplies)){
+            alert("Please enter a valid number to a supplies field");
+            return;
+        }
+        else if(assemble === "" || isNaN(assemble)){
+            alert("Please enter a valid number to an assemble field");
+            return;
+        }
+        else{
+            const xhr = new XMLHttpRequest();
+            xhr.open("POST", "http://127.0.0.1:5000/producent", true);
+            xhr.setRequestHeader("Content-Type", "application/json");
+            xhr.setRequestHeader("Access-Control-Allow-Origin", "*");
+
+            xhr.onload = function() {
+                if (xhr.status === 200) {
+                    alert("Sent to Python successfully!");
+                    performAnalise(levelValue);
+                } 
+                else {
+                    alert("Error sending to Python");
+                }
+            }
+
+            data =  `{"component": \"${component}\", "supplies":${supplies}, "assemble":${assemble}}`;
+            xhr.send(data);
+        }
+    }
+
+    function sendGenralLevel1(){
+        const tent = tentInput1.value;
+        
+        if(tent === "" || isNaN(tent)){
+            alert("Please enter a valid number to a tent field");
+            return;
+        }
+        else{
+            const xhr = new XMLHttpRequest();
+            xhr.open("POST", "http://127.0.0.1:5000/tent", true);
+            xhr.setRequestHeader("Content-Type", "application/json");
+            xhr.setRequestHeader("Access-Control-Allow-Origin", "*");
+
+            xhr.onload = function() {
+
+                if (xhr.status === 200) {
+                    alert("Sent to Python successfully!");
+                } 
+                else {
+                    alert("Error sending to Python");
+                }
+            }
+            data =  `{"tent":${tent}}`;
+            xhr.send(data);
+        }
+    }
+
+    function performAnalise(levelValue){
+        const xhr = new XMLHttpRequest();
+        xhr.open("POST", "http://127.0.0.1:5000/exl", true);
+        xhr.setRequestHeader("Content-Type", "application/json");
+        xhr.setRequestHeader("Access-Control-Allow-Origin", "*");
+
+        xhr.onload = function() {
+            if (xhr.status === 200) {
+                alert("Sent to Python successfully!");
+            } 
+            else {
+                alert("Error sending to Python");
+            }
+        }
+
+        data =  `{"level":${levelValue}}`;
+        xhr.send(data);
+    }
+    
+
 
     function openPopup(){
         popup.classList.add("open-popup");
@@ -91,6 +289,9 @@
     function closePopup(){
         popup.classList.remove("open-popup");
     }
+       
 </script>
 </body>
 </html>
+
+
