@@ -138,7 +138,7 @@
                     <input type="number" id="suppliesInputRopes" placeholder="Enter the number">
                     <p>Provide the time needed to order the item</p>
                     <input type="number" id="orderInputRopes" placeholder="Enter the number">
-                    <button type="button" id="confirmBtn" onclick="sendGenralLevel(2, 'ropes')">Submit</button>
+                    <button type="button" id="confirmBtn" onclick="submitLevel(2, 'ropes')">Submit</button>
                 </div>
             </div>
         </div>
@@ -319,7 +319,7 @@
             }
             else if(component === "waterproof_material"){
                 supplies = suppliesInputWaterproofMaterial.value;
-                order = assembleInputWaterproofMaterial.value;
+                order = orderInputWaterproofMaterial.value;
             }
             else if(component === "floor_material"){
                 supplies = suppliesInputWaterproofMaterial.value;
@@ -371,7 +371,7 @@
                 }
             }
 
-            data =  `{"component": \"${component}\", "supplies":${supplies}, "assemble":${assemble}, "order":${order}`;
+            data =  `{"component": \"${component}\", "supplies":${supplies}, "assemble":${assemble}, "order":${order}}`;
             xhr.send(data);
         }
     }
@@ -403,32 +403,6 @@
         }
     }
 
-    function sendGenralLevel2(){
-        const tent = tentInput1.value;
-        
-        if(tent === "" || isNaN(tent)){
-            alert("Please enter a valid number to a tent field");
-            return;
-        }
-        else{
-            const xhr = new XMLHttpRequest();
-            xhr.open("POST", "http://127.0.0.1:5000/tent", true);
-            xhr.setRequestHeader("Content-Type", "application/json");
-            xhr.setRequestHeader("Access-Control-Allow-Origin", "*");
-
-            xhr.onload = function() {
-
-                if (xhr.status === 200) {
-                    alert("Sent to Python successfully!");
-                } 
-                else {
-                    alert("Error sending to Python");
-                }
-            }
-            data =  `{"tent":${tent}}`;
-            xhr.send(data);
-        }
-    }
 
     function performAnalise(levelValue){
         const xhr = new XMLHttpRequest();
