@@ -19,11 +19,15 @@
     <main>
         <section id="products">
             <div class="container">
-                <h2>Our Products</h2>
+                <h2>Our Product</h2>
                 <div class="product">
                     <div class="product-details">
                         <h3>Waterproof Tent</h3>
                         <p>Price: $59.99</p>
+                        <svg xmlns="http://www.w3.org/2000/svg" style="margin-right:10px;"width="40" height="40" fill="darkseagreen" class="bi bi-cart-plus" viewBox="0 0 16 16">
+                            <path d="M9 5.5a.5.5 0 0 0-1 0V7H6.5a.5.5 0 0 0 0 1H8v1.5a.5.5 0 0 0 1 0V8h1.5a.5.5 0 0 0 0-1H9z"/>
+                            <path d="M.5 1a.5.5 0 0 0 0 1h1.11l.401 1.607 1.498 7.985A.5.5 0 0 0 4 12h1a2 2 0 1 0 0 4 2 2 0 0 0 0-4h7a2 2 0 1 0 0 4 2 2 0 0 0 0-4h1a.5.5 0 0 0 .491-.408l1.5-8A.5.5 0 0 0 14.5 3H2.89l-.405-1.621A.5.5 0 0 0 2 1zm3.915 10L3.102 4h10.796l-1.313 7zM6 14a1 1 0 1 1-2 0 1 1 0 0 1 2 0m7 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0"/>
+                          </svg>
                         <button class="buy-now-btn" onclick="openPopup()">Buy Now</button> 
                         <div class="popup" id="popup">
                             <img src="cart.jpg">
@@ -34,16 +38,60 @@
                             <button type="button" id="confirmBtn" onclick="sendQuantityToPython()">OK</button>
                         </div>  
                     </div>
-                    <img src="tent.png" alt="Tent" class="product-image">
+                    <img src="tent.jpg" alt="Tent" class="product-image">
                 </div>
             </div>
         </section>
         
     </main>
 
+    <div class="responsive">
+        <div class="gallery">
+          <a target="_blank" href="picture1.jpg">
+            <img src="picture1.jpg" alt="Tent">
+          </a>
+        </div>
+      </div>
+    <div class="responsive">
+        <div class="gallery">
+          <a target="_blank" href="picture2.jpg">
+            <img src="picture2.jpg" alt="Tent">
+          </a>
+        </div>
+    </div>
+    <div class="responsive">
+        <div class="gallery">
+          <a target="_blank" href="picture3.jpg">
+            <img src="picture3.jpg" alt="Tent">
+          </a>
+        </div>
+    </div>
+    
+    <div class="responsive">
+        <div class="gallery">
+          <a target="_blank" href="picture4.jpg">
+            <img src="picture4.jpg" alt="Tent">
+          </a>
+        </div>
+    </div>
+
+    <div class="clearfix"></div>
+    <div style="padding:2px;">
+
+    <footer id="producent-footer">
+        <b>For producent
+            <svg xmlns="http://www.w3.org/2000/svg" style="margin-left:10px;"width="44" height="44" fill="currentColor" class="bi bi-arrow-bar-down" viewBox="0 0 16 16">
+            <path fill-rule="evenodd" d="M1 3.5a.5.5 0 0 1 .5-.5h13a.5.5 0 0 1 0 1h-13a.5.5 0 0 1-.5-.5M8 6a.5.5 0 0 1 .5.5v5.793l2.146-2.147a.5.5 0 0 1 .708.708l-3 3a.5.5 0 0 1-.708 0l-3-3a.5.5 0 0 1 .708-.708L7.5 12.293V6.5A.5.5 0 0 1 8 6"/>
+          </svg></b>
+    </footer>
+
+    <b style="font-size: larger; margin-left: 155px;">Rules for filling out the form below </b>
+    <p style="margin-left:155px;">The time should be given in weeks.</p>
+    <p style="margin-bottom:50px; margin-left: 155px;">Please, remember not to choose negative values! </p>
+
     <section id="productsLevel0">
         <div class="container">
-            <h2>For Producent Level 0</h2>
+            <h2>Level 0- tent</h2>
             <div class="product">
                 <div class="product-detail">
                     <p>Provide initial stock</p> 
@@ -58,7 +106,12 @@
 
     <section id="productsLevel1">
         <div class="container">
-            <h2>For Producent Level 1</h2>
+            <h2></h2>
+            <p>Please, entry the time needed to assemble the tent one more time:</p>
+            <svg xmlns="http://www.w3.org/2000/svg" style="margin-left:500px;"width="40" height="40" fill="tan" class="bi bi-calendar-week" viewBox="0 0 16 16">
+                <path d="M11 6.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5zm-3 0a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5zm-5 3a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5zm3 0a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5z"/>
+                <path d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5M1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4z"/>
+              </svg>
             <div class="product">
                 <div class="product-detail">
                     <input type="number" id="tentInput1" placeholder="Enter the number"><br>
@@ -70,7 +123,7 @@
 
     <section id="productsLevel1Roof">
         <div class="container">
-            <h2>For Producent Level 1 Roof</h2>
+            <h2>Level 1- roof</h2>
             <div class="product">
                 <div class="product-detail">
                     <p>Provide initial stock</p> 
@@ -85,7 +138,7 @@
 
     <section id="productsLevel1Floor">
         <div class="container">
-            <h2>For Producent Level 1 Floor</h2>
+            <h2>Level 1- floor</h2>
             <div class="product">
                 <div class="product-detail">
                     <p>Provide initial stock</p> 
@@ -100,7 +153,7 @@
 
     <section id="productsLevel1Entry">
         <div class="container">
-            <h2>For Producent Level 1 Entry</h2>
+            <h2>Level 1- entry</h2>
             <div class="product">
                 <div class="product-detail">
                     <p>Provide initial stock</p> 
@@ -115,7 +168,7 @@
 
     <section id="productsLevel1Frame">
         <div class="container">
-            <h2>For Producent Level 1 Frame</h2>
+            <h2>Level 1- frame</h2>
             <div class="product">
                 <div class="product-detail">
                     <p>Provide initial stock</p> 
@@ -131,7 +184,7 @@
 
     <section id="productsLevel2Ropes">
         <div class="container">
-            <h2>For Producent Level 2 Ropes</h2>
+            <h2>Level 2- ropes</h2>
             <div class="product">
                 <div class="product-detail">
                     <p>Provide initial stock</p> 
@@ -146,7 +199,7 @@
 
     <section id="productsLevel2WaterproofMaterial">
         <div class="container">
-            <h2>For Producent Level 2 Waterproof Material</h2>
+            <h2>Level 2- waterproof material</h2>
             <div class="product">
                 <div class="product-detail">
                     <p>Provide initial stock</p> 
@@ -161,7 +214,7 @@
 
     <section id="productsLevel2FloorMaterial">
         <div class="container">
-            <h2>For Producent Level 2 Floor Material</h2>
+            <h2>Level 2- floor material</h2>
             <div class="product">
                 <div class="product-detail">
                     <p>Provide initial stock</p> 
@@ -176,7 +229,7 @@
 
     <section id="productsLevel2Herrings">
         <div class="container">
-            <h2>For Producent Level 2 Herrings</h2>
+            <h2>Level 2- herrings</h2>
             <div class="product">
                 <div class="product-detail">
                     <p>Provide initial stock</p> 
@@ -191,7 +244,7 @@
 
     <section id="productsLevel2Net">
         <div class="container">
-            <h2>For Producent Level 2 Net</h2>
+            <h2>Level 2- net</h2>
             <div class="product">
                 <div class="product-detail">
                     <p>Provide initial stock</p> 
@@ -206,7 +259,7 @@
 
     <section id="productsLevel2Tubes">
         <div class="container">
-            <h2>For Producent Level 2 Tubes</h2>
+            <h2>Level 2- tubes</h2>
             <div class="product">
                 <div class="product-detail">
                     <p>Provide initial stock</p> 
@@ -221,7 +274,7 @@
 
     <section id="productsLevel2Lock">
         <div class="container">
-            <h2>For Producent Level 2 Lock</h2>
+            <h2>Level 2- lock</h2>
             <div class="product">
                 <div class="product-detail">
                     <p>Provide initial stock</p> 
@@ -233,6 +286,10 @@
             </div>
         </div>
     </section>
+
+    <footer style="background-color: darkseagreen;">
+        <p>Creators: <b>Solomiia Titova, Magdalena Wachowska</b></p>
+    </footer>
 
     <footer>
         <p>&copy; 2024 Camping Web Shop</p>
