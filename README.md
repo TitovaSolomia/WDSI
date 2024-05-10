@@ -3,7 +3,7 @@
 ## Homework- MRP system
 Ważne uwagi:
 - należy pobrać repozytorium na swój komputer (git clone + adres repozytorium)
-- należy otworzyć folder w Visual Studio Code
+- należy otworzyć folder wdsi2 w Visual Studio Code
 - zaimportować odpowiednie biblioteki (pandas, openpyxl, flask, flask_cors, numpy, matplotlib.pyplot, webbrowser)
 - następnie przed wyświetleniem strony należy URUCHOMIĆ KOD ZAWARTY W PLIKU "proccessQuantity.py" !! BARDZO WAŻNE, bez tego strona nie zadziała
 - korzystając np. z rozszerzenia LiveServer należy wyświetlić stronę- plik "index.html"
