@@ -22,5 +22,5 @@ Ważne uwagi:
   - śledzie - 8szt
     
 #### Additional
-Ze względu na to, że pojawiły się problemy z przekazaniem niektórych zmiennych wprowadzanych przez użytkownika na stronie, do kodu python do poziomu 2, poza folderem "wdsi2" zamieściłyśmy w tym repozytorium również plik "czysto pythonowy"- records.py
+Ze względu na to, że pojawiły się problemy z przekazaniem niektórych zmiennych wprowadzanych przez użytkownika na stronie do kodu python do poziomu 2, poza folderem "wdsi2" zamieściłyśmy w tym repozytorium również plik "czysto pythonowy"- records.py
 Działa on na praktycznie tym samym algorytmie, z taką różnicą, że nie mamy wizualnej strony, użytkownik musi wprowadzić dane w terminalu. Po poprawnym uzupełnieniu wygenerowane zostaną pliki .xlsx, osobno dla każdego elementu namiotu z rekordem mrp.
